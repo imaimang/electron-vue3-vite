@@ -1,0 +1,44 @@
+{
+  "name": "mm",
+  "version": "0.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "electron": "wait-on tcp:0.0.0.0:5000 && cross-env NODE_ENV=development electron .",
+    "serve": "concurrently -k \"npm run dev\" \"npm run electron\"",
+    "build": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "asar": "^3.1.0",
+    "vue": "^3.2.16"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^15.1.2",
+    "electron-builder": "^22.13.1",
+    "vite": "^2.6.4",
+    "wait-on": "^6.0.0"
+  },
+  "build": {
+    "appId": "mm.sample",
+    "productName": "mm",
+    "copyright": "",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "publish/vue/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "publish/electron"
+    }
+  }
+}

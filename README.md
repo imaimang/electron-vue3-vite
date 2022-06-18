@@ -57,7 +57,7 @@ vite.config.ts
   },
 ```
 
-### chage publish dir
+### change publish dir
 
 default publish dir is "publish"
 
